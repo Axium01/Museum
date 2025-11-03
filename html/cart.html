@@ -81,6 +81,7 @@
       const cartContainer = document.getElementById('cartContainer');
       const cart = readCart();
 
+      // only appears if the cart is empty, ends function early
       if (cart.length === 0) {
         cartContainer.innerHTML = `<p>Your cart is empty.</p>`;
         return;
@@ -89,8 +90,9 @@
       let itemTotal = 0;
       let html = `
       <table class="cart-table">
-        <tr><th>Item</th><th>Qty</th><th>Unit Price</th><th>Line Total</th><th>Remove</th></tr>`;
+      <tr><th>Item</th><th>Qty</th><th>Unit Price</th><th>Line Total</th><th>Remove</th></tr>`;
 
+      // CART ITEM DISPLAY //
       cart.forEach((it, i) => {
         const lineTotal = it.unitPrice * it.qty;
         itemTotal += lineTotal;
@@ -106,7 +108,7 @@
 
       html += `</table>`;
 
-     
+      // CALCULATIONS //
       let volumeRate = 0;
       for (const tier of VOLUME_DISCOUNT_TIERS) {
         if (itemTotal >= tier.min && itemTotal <= tier.max) {
@@ -114,7 +116,7 @@
           break;
         }
       }
-
+      // member calculations
       const memberApplied = document.getElementById('memberToggle').checked;
       let volumeDiscount = itemTotal * volumeRate;
       let memberDiscount = memberApplied ? itemTotal * MEMBER_DISCOUNT_RATE : 0;
@@ -123,11 +125,12 @@
         alert("Only one discount can be applied. Member discount will be used.");
         volumeDiscount = 0;
       }
-
+      
       const subtotalTaxable = itemTotal - volumeDiscount - memberDiscount + SHIPPING_RATE;
       const taxAmount = subtotalTaxable * TAX_RATE;
       const invoiceTotal = subtotalTaxable + taxAmount;
 
+      // SUMMARY DISPLAY //
       html += `
         <div class="summary">
           <p>Subtotal of Items: <span class="amt">$${itemTotal.toFixed(2)}</span></p>
