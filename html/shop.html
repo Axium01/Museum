@@ -110,15 +110,15 @@
     }
 
     function openModal(imgElement) {
-      const modal = document.getElementById('imageModal');
-      const modalImg = document.getElementById('modalImg');
+      const modal = document.getElementById("modal");
+      const modalImage = document.getElementById("modal-image");
+      modalImage.src = imgElement.src;
+      modalImage.alt = imgElement.alt;
       modal.style.display = "block";
-      modalImg.src = imgElement.src;
-      modalImg.alt = imgElement.alt;
     }
 
     function closeModal() {
-      document.getElementById('imageModal').style.display = "none";
+      document.getElementById('modal').style.display = "none";
     }
 
     function addToCart(btn) {
@@ -146,14 +146,12 @@
         }
       }
     }
-
     window.onclick = function(event) {
-      const modal = document.getElementById('imageModal');
+      const modal = document.getElementById("modal");
       if (event.target === modal) {
-        modal.style.display = "none";
+        closeModal();
       }
     }
-  
   </script>
 </body>
 
