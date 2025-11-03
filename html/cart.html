@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Milo Wearn">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Museum Cart</title>
+  <style>
+    /* minimal on-page styles for clarity; move to your CSS later if you want */
+    main { max-width: 720px; margin: 0 auto; padding: 16px; }
+    .controls { margin: 8px 0 12px; }
+    .empty { padding: 12px; border: 1px dashed #666; font-style: italic; }
+    pre#summary { background: #f8f8f8; padding: 12px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .actions { margin-top: 12px; display: flex; gap: 8px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Museum of History</h1>
+    <nav>
+      <ul>
+        <button class="nav-btn" onclick="location.href='../index.html'">Home</button>
+        <button class="nav-btn" onclick="location.href='staff.html'">Staff</button>
+        <button class="nav-btn" onclick="location.href='collections.html'">Collections</button>
+        <button class="nav-btn" onclick="location.href='shop.html'">Shop</button>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- NEW CONTROLS (Cart page only) -->
+    <div class="controls">
+      <label><input type="checkbox" id="memberToggle"> Member Discount (15%)</label>
+    </div>
+
+    <!-- STATES & OUTPUT AREAS -->
+    <div id="cartContainer" class="cart-container">
+      <p>Your cart is empty.</p>
+    </div>
+
+    <!-- BASIC ACTIONS -->
+    <div class="actions">
+      <button id="clearCart">Clear Cart</button>
+      <a href="shop.html">Keep Shopping</a>
+    </div>
+  </main>
+
+  <script>
+    const CART_KEY = 'museumCartV1';
+    const TAX_RATE = 0.102;
+    const MEMBER_DISCOUNT_RATE = 0.15;
+    const SHIPPING_RATE = 25.00;
+    const VOLUME_DISCOUNT_TIERS = [
+      { min: 0, max: 49.99, rate: 0 },
+      { min: 50, max: 99.99, rate: 0.05 },
+      { min: 100, max: 199.99, rate: 0.10 },
+      { min: 200, max: Infinity, rate: 0.15 }
+    ];
+
+    function readCart() {
+      try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; }
+      catch { return []; }
+    }
+
+    function writeCart(cart) {
+      localStorage.setItem(CART_KEY, JSON.stringify(cart));
+    }
+
+    function clearCart() {
+      localStorage.removeItem(CART_KEY);
+      render();
+    }
+
+    document.getElementById('clearCart').addEventListener('click', clearCart);
+    document.getElementById('memberToggle').addEventListener('change', render);
+
+   
+    function render() {
+      const cartContainer = document.getElementById('cartContainer');
+      const cart = readCart();
+
+      if (cart.length === 0) {
+        cartContainer.innerHTML = `<p>Your cart is empty.</p>`;
+        return;
+      }
+
+      let itemTotal = 0;
+      let html = `
+      <table class="cart-table">
+        <tr><th>Item</th><th>Qty</th><th>Unit Price</th><th>Line Total</th><th>Remove</th></tr>`;
+
+      cart.forEach((it, i) => {
+        const lineTotal = it.unitPrice * it.qty;
+        itemTotal += lineTotal;
+        html += `
+          <tr>
+            <td><img src="${it.image}" alt="${it.name}" style="width:50px;height:50px;"> ${it.name}</td>
+            <td>${it.qty}</td>
+            <td style="text-align:right;">$${it.unitPrice.toFixed(2)}</td>
+            <td style="text-align:right;">$${lineTotal.toFixed(2)}</td>
+            <td><button onclick="removeItem('${it.id}')">Remove</button></td>
+          </tr>`;
+      });
+
+      html += `</table>`;
+
+     
+      let volumeRate = 0;
+      for (const tier of VOLUME_DISCOUNT_TIERS) {
+        if (itemTotal >= tier.min && itemTotal <= tier.max) {
+          volumeRate = tier.rate;
+          break;
+        }
+      }
+
+      const memberApplied = document.getElementById('memberToggle').checked;
+      let volumeDiscount = itemTotal * volumeRate;
+      let memberDiscount = memberApplied ? itemTotal * MEMBER_DISCOUNT_RATE : 0;
+
+      if (memberApplied && volumeRate > 0) {
+        alert("Only one discount can be applied. Member discount will be used.");
+        volumeDiscount = 0;
+      }
+
+      const subtotalTaxable = itemTotal - volumeDiscount - memberDiscount + SHIPPING_RATE;
+      const taxAmount = subtotalTaxable * TAX_RATE;
+      const invoiceTotal = subtotalTaxable + taxAmount;
+
+      html += `
+        <div class="summary">
+          <p>Subtotal of Items: <span class="amt">$${itemTotal.toFixed(2)}</span></p>
+          <p>Volume Discount <span class="amt">(${volumeDiscount > 0 ? volumeDiscount.toFixed(2) : '$0.00'})</span></p>
+          <p>Member Discount <span class="amt">(${memberDiscount > 0 ? memberDiscount.toFixed(2) : '$0.00'})</span></p>
+          <p>Shipping <span class="amt">$${SHIPPING_RATE.toFixed(2)}</span></p>
+          <p>Subtotal (Taxable amount) <span class="amt">$${subtotalTaxable.toFixed(2)}</span></p>
+          <p>Tax Rate % <span class="amt">${(TAX_RATE * 100).toFixed(2)}%</span></p>
+          <p>Tax Amount $ <span class="amt">$${taxAmount.toFixed(2)}</span></p>
+          <h3>Cart Subtotal: <span class="amt">$${invoiceTotal.toFixed(2)}</span></h3>
+        </div>`;
+
+      cartContainer.innerHTML = html;
+    }
+
+    function removeItem(id) {
+      let cart = readCart();
+      cart = cart.filter(it => it.id !== id);
+      writeCart(cart);
+      render(); // rerender so that it actually changes graphically
+    }
+
+    render();
+    
+  
+  </script>
+</body>
+</html>

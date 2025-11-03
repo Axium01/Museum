@@ -17,6 +17,10 @@ header h1 {
     margin: 0;
 }
 
+h1 {
+    color: white;
+}
+
 nav ul {
     list-style: none;
     padding: 0;
@@ -144,6 +148,27 @@ footer p {
     color: white;
 }
 
+.collection-item {
+    display: flex;
+    text-align: left;
+    align-items: center;
+    background-color: rgba(0, 55, 85, 0.827);
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.collection-item img {
+    width: 45%;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-right: 1.5rem;
+}
+
+
+
 /* Shop Styling */
 
 .shop-container {
@@ -221,4 +246,13 @@ footer p {
     font-size: 1.2rem;
     cursor: pointer;
     color: #444;
+}
+
+.cart-container {
+    background-color: rgba(0, 55, 85, 0.827);
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 1rem;
+    margin-bottom: 1.5rem;
 }

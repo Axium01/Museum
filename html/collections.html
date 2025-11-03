@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
@@ -8,31 +9,531 @@
     <meta name="author" content="Milo Wearn">
     <link rel="stylesheet" href="../css/style.css">
 </head>
-    <body>
-        <header>
+
+<body>
+    <header>
         <h1>Museum of History</h1>
+        <nav>
+            <ul>
+                <button class="nav-btn" onclick="location.href='../index.html'">Home</button>
+                <button class="nav-btn" onclick="location.href='staff.html'">Staff</button>
+                <button class="nav-btn" onclick="location.href='shop.html'">Shop</button>
+            </ul>
+        </nav>
+    </header>
+    <main id="collections-main">
+        <section>
             <nav>
                 <ul>
-                    <button class="nav-btn" onclick="location.href='../index.html'">Home</button>
-                    <button class="nav-btn" onclick="location.href='staff.html'">Staff</button>
-                    <button class="nav-btn" onclick="location.href='shop.html'">Shop</button>
+                    <button class="nav-btn" onclick="showSection('Archeology')">Archeology</button>
+                    <button class="nav-btn" onclick="showSection('Anthropology')">Anthropology</button>
+                    <button class="nav-btn" onclick="showSection('History')">History</button>
                 </ul>
             </nav>
-        </header>
-        <main id="collections-main">
-            <section>
-                <nav>
-                <ul>
-                    <button class="nav-btn" onclick="location.href='archeology.html'">Archeology</button>
-                    <button class="nav-btn" onclick="location.href='anthropology.html'">Anthropology</button>
-                    <button class="nav-btn" onclick="location.href='history.html'">History</button>
-                </ul>
-            </nav>
-            </section>
-            <section class="grid-bottom">
-                <p>This is a fictitious website created purely for academic purposes. AI was used in the making of this website.</p>
-            </section>
-        </main>
-    </body>
+        </section>
+        <section id="Archeology" class="collection-section" style="display:none;">
+            <h1>Archeology</h1>
+            <div class="collection-item">
+                <img src="../images/collections/stylus.jpg" alt="Bronze Stylus" class="artifact-img" class="open-modal"
+                    data-modal-target="#modal-text-stylus" width="50%">
+                <div>
+                    <h2>Bronze Stylus</h2>
+                    <p><strong>Material:</strong> Cast bronze with traces of corrosion</p>
+                    <p><strong>Size/Weight/Shape:</strong> Cylindrical rod, tapering to a point at one end; flattened
+                        spatula at the other. Approx. 18 cm long, 1 cm diameter. Weight approx. 120 g.</p>
+                    <p><strong>Estimated Age:</strong> Late Bronze Age (c. 1200–1000 BCE)</p>
+                    <p><strong>Preservation State:</strong> Intact, with green patina; tip slightly blunted from use.
+                    </p>
+                    <p><strong>Location Found:</strong> Ugarit (modern Ras Shamra, Syria), scribal quarter near palace
+                        archives.</p>
+                    <p><strong>Likely Purpose:</strong> Tool for inscribing cuneiform or alphabetic script onto soft
+                        clay or wax tablets.</p>
+                    <p><strong>Evidence of Use:</strong> Wear marks along the tip and edges; clay residue in grooves.
+                    </p>
+                    <p><strong>Manufacture Clues:</strong> Cast in a simple mold; surface shows signs of hand polishing
+                        and sharpening.</p>
+                    <p><strong>Found With:</strong> Fragmented clay tablets and ceramic inkwells; associated with other
+                        writing tools.</p>
+                    <p><strong>Burial or Habitat Context:</strong> Found in debris layer of a collapsed storage room
+                        containing administrative materials.</p>
+                    <p><strong>Symbolism:</strong> Represents literacy and the bureaucratic functions of ancient
+                        city-states.</p>
+                    <p><strong>Comparison:</strong> Similar styluses recovered from Late Bronze Age archives at Hattusa
+                        and Byblos.</p>
+                </div>
+            </div>
+            <div class="collection-item">
+                <img src="../images/collections/tablet.jpg" alt="Clay Tablet Fragment" class="artifact-img"
+                    class="open-modal" data-modal-target="#modal-text-tablet" width="50%">
+                <div>
+                    <h2>Clay Tablet Fragment</h2>
+                    <p><strong>Material:</strong> Baked clay with incised wedge-shaped inscriptions.</p>
+                    <p><strong>Size/Weight/Shape:</strong> Rectangular fragment, approx. 12×8×2 cm; weight approx. 350
+                        g.</p>
+                    <p><strong>Estimated Age:</strong> Late Bronze Age, Kassite Period (c. 1300–1100 BCE)</p>
+                    <p><strong>Preservation State:</strong> Fragmentary but legible; some erosion at edges; script
+                        remains clear.</p>
+                    <p><strong>Location Found:</strong> Nippur, southern Mesopotamia (modern Iraq).</p>
+                    <p><strong>Likely Purpose:</strong> Administrative record, possibly a grain inventory or ration
+                        list.</p>
+                    <p><strong>Evidence of Use:</strong> Uneven firing suggests it was sun-dried before accidental
+                        baking;
+                        consistent with mass-produced bureaucratic documents.</p>
+                    <p><strong>Manufacture Clues:</strong> Formed by hand, surface smoothed with a reed;
+                        text impressed with stylus before drying.</p>
+                    <p><strong>Found With:</strong> Other tablet fragments, broken jar seals, and carbonized seeds.</p>
+                    <p><strong>Burial or Habitat Context:</strong> Found in the remains of an archive room within a
+                        temple storehouse.</p>
+                    <p><strong>Symbolism:</strong> Represents the growth of written administration and economic control
+                        in ancient urban societies.</p>
+                    <p><strong>Comparison:</strong> Matches standard Kassite-period accounting tablets from Ur and
+                        Babylon in format and handwriting style.</p>
+                </div>
+            </div>
+            <div class="collection-item">
+                <img src="../images/collections/dagger.jpg" alt="Bronze Dagger" class="artifact-img" class="open-modal"
+                    data-modal-target="#modal-text-dagger" width="50%">
+                <div>
+                    <h2>Bronze Dagger</h2>
+                    <p><strong>Material:</strong> Cast bronze blade; bone handle with copper rivets.</p>
+                    <p><strong>Size/Weight/Shape:</strong> Triangular leaf-shaped blade, 28 cm total length, 5 cm width
+                        at hilt; weight approx. 450 g.</p>
+                    <p><strong>Estimated Age:</strong> Middle Bronze Age (c. 1800–1500 BCE)</p>
+                    <p><strong>Preservation State:</strong> Excellent overall; light corrosion on blade, handle intact
+                        but cracked at rivet points.</p>
+                    <p><strong>Location Found:</strong> Burial mound near Mycenae, Peloponnese, Greece.</p>
+                    <p><strong>Likely Purpose:</strong> Ceremonial or personal weapon; possibly status symbol of an
+                        elite warrior or chieftain.</p>
+                    <p><strong>Evidence of Use:</strong> Minor edge wear and surface abrasions suggesting limited
+                        functional use before burial.</p>
+                    <p><strong>Manufacture Clues:</strong> Blade cast in bivalve mold; tang inserted into carved bone
+                        handle and secured with copper rivets; fine polishing on cutting edge.</p>
+                    <p><strong>Found With:</strong> Gold beads, small ceramic vessels, and animal bone fragments.</p>
+                    <p><strong>Burial or Habitat Context:</strong> Placed beside human remains in a stone-lined grave
+                        chamber.</p>
+                    <p><strong>Symbolism:</strong> Represented power, masculinity, and martial prestige; may have served
+                        as a sign of social hierarchy.</p>
+                    <p><strong>Comparison:</strong> Comparable to bronze daggers from Shaft Grave IV at Mycenae and
+                        similar examples from the Cyclades.</p>
+                </div>
+            </div>
+        </section>
+        <section id="Anthropology" class="collection-section" style="display:none;">
+            <h1>Anthropology</h1>
+            <div class="collection-item">
+                <img src="../images/collections/garment.jpg" alt="Fragment of Woven Linen Tunic" class="artifact-img"
+                    class="open-modal" data-modal-target="#modal-text-garment" width="50%">
+                <div>
+                    <h2>Fragment of Woven Linen Tunic</h2>
+                    <p><strong>Material:</strong> Hand-spun flax fibers (linen), vegetal dye traces.</p>
+                    <p><strong>Size/Weight/Shape:</strong> Surviving textile fragment approx. 35×22 cm; estimated weight
+                        60 g when intact.</p>
+                    <p><strong>Estimated Age:</strong> Middle Bronze Age (c. 1900–1600 BCE)</p>
+                    <p><strong>Preservation State:</strong> Fragile; edges frayed, central weave well preserved due to
+                        arid burial conditions.</p>
+                    <p><strong>Location Found:</strong> Tomb complex at Deir el-Ballas, Upper Egypt.</p>
+                    <p><strong>Likely Purpose:</strong> Everyday garment belonging to a middle-class household; possibly
+                        reused as funerary wrapping.</p>
+                    <p><strong>Evidence of Use:</strong> Discoloration and thread thinning in areas of wear; dye fading
+                        consistent with exposure to light and repeated washing.</p>
+                    <p><strong>Manufacture Clues:</strong> Woven on a horizontal loom; consistent thread spacing;
+                        natural dye from madder root and woad identified through microscopic residue.</p>
+                    <p><strong>Found With:</strong> Beads of faience, pottery fragments, and spindle whorls.</p>
+                    <p><strong>Burial or Habitat Context:</strong> Found wrapped around human remains within a simple
+                        pit burial, likely a domestic interment.</p>
+                    <p><strong>Symbolism:</strong> Represents domestic craftsmanship and textile production as a key
+                        component of Bronze Age gendered labor systems.</p>
+                    <p><strong>Comparison:</strong> Comparable to linen textiles from Kahun and Tell el-Dab‘a, showing
+                        similar weaving density and fiber preparation techniques.</p>
+                </div>
+            </div>
+            <div class="collection-item">
+                <img src="../images/collections/figurine.jpg"
+                    alt="Female Terracotta Figurine with Painted Ornamentation" class="artifact-img" class="open-modal"
+                    data-modal-target="#modal-text-figurine" width="50%">
+                <div>
+                    <h2>Female Terracotta Figurine with Painted Ornamentation</h2>
+                    <p><strong>Material:</strong> Fine-grained clay, red slip, black and white mineral pigment.</p>
+                    <p><strong>Size/Weight/Shape:</strong> Standing anthropomorphic figure, 17 cm tall; weight approx.
+                        280 g.</p>
+                    <p><strong>Estimated Age:</strong> Early Bronze Age (c. 2500–2000 BCE)</p>
+                    <p><strong>Preservation State:</strong> Nearly complete; minor chipping on base and loss of pigment
+                        on face and torso.</p>
+                    <p><strong>Location Found:</strong> Settlement mound at Çatalhöyük (later phase), Central Anatolia.
+                    </p>
+                    <p><strong>Likely Purpose:</strong> Used in domestic rituals connected to fertility, household
+                        protection, or ancestor veneration.</p>
+                    <p><strong>Evidence of Use:</strong> Fingerprint impressions visible in clay; repeated repainting
+                        indicated by layered pigments.</p>
+                    <p><strong>Manufacture Clues:</strong> Modeled by hand; painted post-firing; no mold use detected;
+                        hollowed lower body for weight reduction.</p>
+                    <p><strong>Found With:</strong> Clay loom weights, small bowls, and carbonized cereal remains.</p>
+                    <p><strong>Burial or Habitat Context:</strong> Retrieved from a domestic hearth deposit, possibly
+                        intentionally placed during a house renewal ritual.</p>
+                    <p><strong>Symbolism:</strong> Embodies feminine generative power and household fertility,
+                        reflecting gendered symbolism in early agrarian societies.</p>
+                    <p><strong>Comparison:</strong> Shares stylistic traits with Cycladic and Levantine anthropomorphic
+                        figures of similar date.</p>
+                </div>
+            </div>
+            <div class="collection-item">
+                <img src="../images/collections/skull.jpg" alt="Human skull with modified dentation"
+                    class="artifact-img" class="open-modal" data-modal-target="#modal-text-skull" width="50%">
+                <div>
+                    <h2>Human Skull with Modified Dentition</h2>
+                    <p><strong>Material:</strong> Human bone (cranial and dental remains).</p>
+                    <p><strong>Size/Weight/Shape:</strong> Adult cranium, approx. 22 cm diameter; weight 1.2 kg.</p>
+                    <p><strong>Estimated Age:</strong> Late Bronze Age (c. 1300–1100 BCE)</p>
+                    <p><strong>Preservation State:</strong> minimal post-depositional damage; dental surfaces well preserved.</p>
+                    <p><strong>Location Found:</strong> Cave burial site near the Zagros Mountains, western Iran.</p>
+                    <p><strong>Likely Purpose:</strong> The modified teeth suggest ritual or social distinction—possibly marking clan membership or elite identity.</p>
+                    <p><strong>Evidence of Use:</strong> Incisors show deliberate notching and inlay traces of dark mineral pigment; cranial cut marks from postmortem preparation rituals.</p>
+                    <p><strong>Manufacture Clues:</strong> Dental modification achieved with fine abrasive tools; pigment likely derived from hematite or manganese.</p>
+                    <p><strong>Found With:</strong> Bead necklaces, bronze awl, and animal bones from ritual feasting.</p>
+                    <p><strong>Burial or Habitat Context:</strong> Interred within a small group burial; skull placed separately from skeletons, possibly as a curated ancestral relic.</p>
+                    <p><strong>Symbolism:</strong> Reflects Bronze Age mortuary traditions emphasizing body modification as a social and spiritual marker.</p>
+                    <p><strong>Comparison:</strong> Comparable to cranial and dental modification practices documented in early Eurasian and Central Asian pastoralist groups.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="History" class="collection-section" style="display:none;">
+            <div class="collection-item">
+                <img src="../images/collections/stylus.jpg" alt="Bronze Stylus" class="artifact-img" class="open-modal"
+                    data-modal-target="#modal-text-stylus" width="50%">
+                <p>This slender bronze stylus, approximately 18 cm long and 1 cm in diameter, features a tapered point
+                    at one end for inscribing soft clay or wax and a flattened spatula at the other, weighing roughly
+                    120 g. Traces of corrosion indicate long-term burial, while grooves and wear along the tip show it
+                    was actively used to write. It was recovered from the scribal quarter near the palace archives at
+                    Ugarit, in a collapsed storage room filled with administrative debris. Fragmented clay tablets and
+                    ceramic inkwells found nearby suggest it was part of a professional scribe’s toolkit.
+
+                    Styluses like this were essential in recording trade, taxation, and ritual matters, demonstrating
+                    the literacy and bureaucratic sophistication of Late Bronze Age city-states. Similar examples have
+                    been found at Hattusa and Byblos, highlighting widespread scribal practices across the Eastern
+                    Mediterranean. Clay residue preserved in the grooves offers direct evidence of the tool’s practical
+                    function, while the form reflects careful design optimized for both inscription and erasure.
+
+                    Through its physical characteristics and archaeological context, this stylus illuminates the
+                    material culture of literacy, showing how writing technology shaped administration and
+                    communication. It embodies both the daily work of scribes and the broader social networks of trade
+                    and governance, providing insight into how Bronze Age societies structured information, labor, and
+                    ritual practices. This object bridges the gap between technological skill and societal organization,
+                    revealing the human effort behind the creation and maintenance of early record-keeping systems.
+                </p>
+            </div>
+            <div class="collection-item">
+                <img src="../images/collections/tablet.jpg" alt="Clay Tablet Fragment" class="artifact-img"
+                    class="open-modal" data-modal-target="#modal-text-tablet" width="50%">
+                <p>This rectangular fragment of baked clay, approximately 12 × 8 × 2 cm and weighing 350 g, preserves a
+                    portion of cuneiform writing, the wedge-shaped script used throughout Mesopotamia. The tablet may
+                    have served as an administrative record, possibly tracking grain distribution or ration lists,
+                    reflecting the complex economic organization of Kassite-period city-states. Uneven firing indicates
+                    it was initially sun-dried before accidental baking, a method consistent with the mass production of
+                    bureaucratic documents.
+
+                    Formed by hand and smoothed with a reed, the clay was incised using a stylus, which left clear
+                    impressions of the cuneiform wedges. Fragments of other tablets, broken jar seals, and carbonized
+                    seeds were found nearby, suggesting the tablet was part of a larger archive within a temple
+                    storehouse. Comparable administrative tablets from Ur and Babylon demonstrate similar handwriting,
+                    format, and accounting practices.
+
+                    Through this fragment, we glimpse the rise of written administration and economic control in early
+                    urban Mesopotamia. Tablets like this enabled officials to monitor resources, manage labor, and
+                    coordinate trade across cities. Though incomplete, the artifact communicates the practical, everyday
+                    use of writing as a tool of governance, while also highlighting the skilled craftsmanship involved
+                    in preparing clay and inscribing legible text. This fragment offers both a material and social
+                    window into Bronze Age bureaucracy, showing how written records structured society, supported ritual
+                    institutions, and reinforced political authority.
+                </p>
+            </div>
+            <div class="collection-item">
+                <img src="../images/collections/dagger.jpg" alt="Bronze Dagger" class="artifact-img" class="open-modal"
+                    data-modal-target="#modal-text-dagger" width="50%">
+                <p>This elegant bronze dagger was placed beside a burial in a stone-lined chamber near Mycenae.
+                    Measuring 28 cm in length with a leaf-shaped blade and a carved bone handle secured by copper
+                    rivets, the weapon exemplifies the mastery of Middle Bronze Age metalworkers. The blade’s fine
+                    polish and slight edge wear suggest limited use before interment, implying that the dagger served
+                    primarily as a ceremonial or status object rather than a tool of combat.
+
+                    Its inclusion in the grave, together with gold beads, small ceramic vessels, and animal bone
+                    fragments, points to funerary rituals that combined personal prestige with offerings to the
+                    afterlife. Such associations evoke the symbolic dimensions of weaponry in Bronze Age society—objects
+                    that mediated between power, identity, and remembrance.
+
+                    Comparable examples from the Mycenaean Shaft Graves and the Cyclades reveal a shared aesthetic and
+                    technological vocabulary across the Aegean. In these contexts, daggers functioned as emblems of rank
+                    and masculine virtue, bridging the worlds of craftsmanship and ceremony.
+
+                    Through digital modeling and experimental reconstruction, archaeologists have replicated the
+                    dagger’s casting process, illuminating the sequence of mold preparation, alloying, and finishing
+                    that produced such gleaming instruments of prestige. The artifact’s preservation—light corrosion on
+                    the blade, intact yet cracked handle—offers a rare glimpse into the material life of an object
+                    designed to endure both time and memory.
+
+                    Today, this dagger invites reflection on the Bronze Age fusion of art, technology, and ritual,
+                    embodying a world where the making of metal was as much a spiritual act as a display of skill.
+                </p>
+            </div>
+            <div class="collection-item">
+                <img src="../images/collections/garment.jpg" alt="Fragment of Woven Linen Tunic" class="artifact-img"
+                    class="open-modal" data-modal-target="#modal-text-garment" width="50%">
+                <p>This surviving fragment of a linen tunic measures approximately 35 × 22 cm and weighs an estimated
+                    60 g when intact. Hand-spun flax fibers, woven on a horizontal loom, form a tight, consistent
+                    pattern, while traces of vegetal dyes suggest the garment was originally colored with madder root
+                    and woad. The edges are frayed, and discoloration and thread thinning indicate wear from repeated
+                    use, but the central weave remains well preserved due to the arid burial conditions.
+
+                    The tunic was discovered wrapped around human remains in a simple pit burial, likely serving both as
+                    a domestic garment and as funerary wrapping, a practice common in middle-class Bronze Age
+                    households. Found alongside faience beads, pottery fragments, and spindle whorls, the fragment
+                    provides insight into everyday life and gendered labor systems, as textile production was often a
+                    domestic craft managed by women. Comparable textiles from Kahun and Tell el-Dab‘a exhibit similar
+                    weaving density and fiber preparation, suggesting shared techniques across contemporary Egyptian
+                    communities.
+
+                    This fragment reflects the integration of craft, daily life, and mortuary practice in Bronze Age
+                    Egypt. The tunic represents not only clothing but also the labor, skill, and resources invested in
+                    textile production, linking household activities to broader social and cultural frameworks. Its
+                    preservation allows us to visualize the clothing, color, and texture of Middle Bronze Age garments,
+                    offering a tangible connection to the people who made and wore them.
+                </p>
+            </div>
+            <div class="collection-item">
+                <img src="../images/collections/figurine.jpg" alt="Terracotta Figurine" class="artifact-img"
+                    class="open-modal" data-modal-target="#modal-text-figurine" width="50%">
+                <p>This small terracotta figure, only 17 centimeters tall, was recovered from a domestic hearth deposit
+                    at the later phase of Çatalhöyük—one of the most enduring settlements of ancient Anatolia. Modeled
+                    entirely by hand from fine-grained clay, the figure was finished with a red slip and decorated
+                    post-firing with black and white mineral pigments. Microscopic analysis reveals multiple layers of
+                    repainting, suggesting that it remained in use over an extended period, perhaps renewed during
+                    recurring domestic or seasonal rituals.
+
+                    The figurine’s hollowed lower body lightened its weight and aided drying during firing, while
+                    fingerprint impressions preserved on its surface provide a tangible link to the individual who
+                    shaped it. Found with loom weights, small bowls, and charred cereal remains, the piece likely played
+                    a role in household rituals tied to fertility, protection, or remembrance of ancestors.
+
+                    Its form embodies the feminine principle common across early agrarian societies, where household
+                    prosperity and generative power were personified through female imagery. Comparable anthropomorphic
+                    figures from the Cyclades and the Levant indicate shared ritual themes and aesthetic conventions
+                    across the wider Eastern Mediterranean.
+
+                    Although its precise function cannot be known with certainty, the figurine materializes a social
+                    world in which domestic life, craft, and ritual were inseparable. Through digital modeling and
+                    pigment analysis, archaeologists can now restore its original coloration—revealing not only a sacred
+                    image, but the gestures, repetitions, and beliefs that animated Bronze Age households.
+                </p>
+            </div>
+            <div class="collection-item">
+            <img src="../images/collections/skull.jpg" alt="Human Skull with Dentition" class="artifact-img" class="open-modal"
+                data-modal-target="#modal-text-skull" width="50%">
+            <p>This human skull, discovered in a secluded cave burial in the Zagros Mountains, bears powerful testimony
+                to Bronze Age practices of bodily transformation and remembrance. Measuring approximately 22 cm in
+                diameter, the cranium and teeth show deliberate alterations: the front incisors are notched and inlaid
+                with dark mineral pigment, possibly hematite or manganese, applied using fine abrasives. These
+                modifications were unlikely functional; instead, they likely communicated social identity, group
+                affiliation, or ritualized status.
+
+                The skull was found placed apart from other skeletal remains within a small collective burial. This
+                separation suggests intentional treatment as a curated relic—perhaps an ancestral head preserved for
+                ceremonial display or periodic veneration. Nearby artifacts—bead necklaces, a bronze awl, and animal
+                bones from ritual feasting—point to funerary offerings uniting memory, community, and sustenance.
+
+                Microscopic examination of the cranial surface reveals faint cut marks, indicating careful postmortem
+                preparation rather than violence. Comparative analysis with mortuary traditions in Central Asian and
+                Eurasian pastoralist groups reveals a shared symbolic logic: the human body as a living medium for
+                expressing belonging, lineage, and the sacred.
+
+                By employing digital scanning and pigment analysis, archaeologists are reconstructing how the notched
+                and pigmented teeth may have appeared when viewed in life or ritual light. Such reconstructions
+                transform this artifact from a static relic into a vivid reminder of how Bronze Age communities
+                inscribed social meaning directly onto the body—creating enduring connections between identity,
+                ancestry, and belief.
+            </p>
+        </div>
+        </section>
+
+        </div>
+        
+        </section>
+
+
+
+        <section class="grid-bottom">
+            <p>This is a fictitious website created purely for academic purposes. The content on this site was conceived
+                by a human and created by AI.
+                Some images were created by AI and curated, edited, reviewed, verified, validated, and augmented by a
+                human.</p>
+        </section>
+
+        <!-- MODAL TEXT -->
+        <div class="modal-item" id="modal-text-stylus" hidden>
+            <h2 id="modal-title">Bronze Stylus</h2>
+            <h3>Late Bronze Age, c. 1200–1000 BCE | Ugarit (modern Ras Shamra, Syria)</h3>
+            <p>
+                This bronze stylus, approximately 18 cm long, was used to inscribe cuneiform or alphabetic script onto
+                soft clay or wax tablets. Its tapered point and flattened spatula show wear along the tip and edges, and
+                traces of clay remain in the grooves, revealing frequent use.
+
+                Found in the debris of a collapsed storage room near palace archives, alongside fragmented tablets and
+                ceramic inkwells, the stylus reflects the bureaucratic life of Ugarit’s scribes. Similar tools from
+                Hattusa and Byblos indicate regional patterns of literacy and administrative practice during the Late
+                Bronze Age.
+
+                Through humanistic-material culture analysis, this stylus helps us understand both the practical craft
+                of writing and the social role of literacy in early city-states. While we cannot know the exact texts it
+                recorded, the artifact embodies the skilled labor, governance, and cultural importance of communication
+                in Bronze Age society.
+            </p>
+        </div>
+        <div class="modal-item" id="modal-text-tablet" hidden>
+            <h2 id="modal-title">Clay Tablet Fragment</h2>
+            <h3>Late Bronze Age, Kassite Period, c. 1300–1100 BCE | Nippur, Iraq</h3>
+            <p>This rectangular clay fragment (approx. 12 × 8 × 2 cm, 350 g) bears legible cuneiform inscriptions and
+                shows minor edge erosion. Uneven firing suggests it was sun-dried before accidental baking, a technique
+                consistent with mass-produced administrative documents. Found in a temple storehouse archive alongside
+                other tablet fragments, jar seals, and carbonized seeds, it likely recorded grain inventories or
+                rations, reflecting the organization of labor and resources in Kassite urban society.
+
+                Its shape, handwriting style, and manufacture match standardized bureaucratic tablets from Ur and
+                Babylon, demonstrating shared administrative practices across Mesopotamia. Hand-formed and smoothed with
+                a reed, the fragment was inscribed with a stylus, providing insight into the daily work of scribes.
+
+                Viewed through a humanistic–material culture lens, this tablet illustrates both the practical techniques
+                of record-keeping and the broader social and economic role of literacy, showing how writing structured
+                governance, labor, and ritual in Bronze Age Mesopotamian city-states.
+            </p>
+        </div>
+        <div class="modal-item" id="modal-text-dagger" hidden>
+            <h2 id="modal-title">Bronze Dagger</h2>
+            <h3>Middle Bronze Age, c. 1800–1500 BCE | Found near Mycenae, Greece</h3>
+            <p>Excavated from a burial mound near Mycenae, this bronze dagger reveals the artistry and symbolism of
+                Middle Bronze Age Greece. Its cast bronze blade, bone handle, and copper rivets show sophisticated metal
+                and bone working techniques. At 28 cm long, the dagger’s triangular, leaf-shaped form balances function
+                and ornament.
+
+                Minor edge wear suggests limited use before burial, pointing to its role as a ceremonial or status
+                object rather than a weapon of war. Found beside human remains with gold beads and ceramic vessels, it
+                likely marked the high rank or identity of its owner—perhaps an elite warrior or chieftain. Similar
+                pieces from Mycenae’s Shaft Graves reflect shared traditions of prestige and power across the Aegean.
+
+                Today, the dagger endures as a testament to craftsmanship, social hierarchy, and the ritual language of
+                metal in early Mycenaean society.</p>
+        </div>
+        <div class="modal-item" id="modal-text-garment" hidden>
+            <h2 id="modal-title">Fragment of Woven Linen Tunic</h2>
+            <h3>Middle Bronze Age, c. 1900–1600 BCE | Deir el-Ballas, Upper Egypt</h3>
+            <p>This fragment of hand-spun linen (approx. 35 × 22 cm, 60 g) was likely part of an everyday garment from a
+                middle-class household. Faded vegetal dyes from madder root and woad, along with thread thinning and
+                frayed edges, indicate extended wear and repeated washing. Eventually, the textile was repurposed as
+                funerary wrapping, found around human remains in a simple pit burial.
+
+                Microscopic analysis shows it was woven on a horizontal loom with consistent thread spacing, reflecting
+                domestic weaving skill. Similar linen textiles from Kahun and Tell el-Dab‘a suggest shared techniques in
+                fiber preparation, weaving, and dyeing across Middle Bronze Age Egypt.
+
+                Found alongside faience beads, pottery fragments, and spindle whorls, the fragment illustrates the
+                integration of textile production into household labor and gendered craft systems. Through a
+                humanistic-material culture perspective, the tunic fragment conveys both practical and social aspects of
+                daily life, revealing how ordinary clothing was connected to identity, skill, and ritual in Bronze Age
+                society.
+            </p>
+        </div>
+        <div class="modal-item" id="modal-text-figurine" hidden>
+            <h2 id="modal-title">Female Terracotta Figurine with Painted Ornamentation</h2>
+            <h3>Early Bronze Age, c. 2500–2000 BCE | Çatalhöyük (later phase), Central Anatolia</h3>
+            <p>This finely crafted terracotta figure, standing 17 cm tall, was found in a domestic hearth deposit at
+                Çatalhöyük. Modeled by hand from fine clay and painted with red slip and mineral pigments, the figurine
+                was likely used in household rituals related to fertility, protection, or ancestor veneration.
+
+                Fingerprint impressions preserved in the clay and traces of layered repainting connect the object to
+                repeated acts of care and renewal. Found alongside loom weights, small bowls, and carbonized cereal
+                remains, it evokes a world in which domestic labor and spiritual practice were intertwined.
+
+                Comparable figures from the Cyclades and the Levant point to shared Bronze Age traditions celebrating
+                feminine generative power. Despite its fragile form, the figurine endures as a material expression of
+                devotion and the intimate sacredness of the home.</p>
+        </div>
+        <div class="modal-item" id="modal-text-skull" hidden>
+            <h2 id="modal-title">Human Skull with Modified Dentition</h2>
+            <h3>Late Bronze Age, c. 1300–1100 BCE | Zagros Mountains, western Iran</h3>
+            <p>Excavated from a cave burial near the Zagros Mountains, this Late Bronze Age skull reveals the deep
+                interconnection between body, belief, and identity. The teeth display deliberate notching and inlays of
+                dark mineral pigment—likely hematite or manganese—applied using fine abrasive tools. Such modifications
+                probably signified clan membership or elevated social status rather than serving a practical function.
+
+                Found separately from other skeletons, the skull appears to have been a curated ancestral relic.
+                Associated offerings—bead necklaces, a bronze awl, and animal bones from ritual feasting—suggest
+                ceremonies of remembrance and renewal.
+
+                Through 3D modeling and pigment analysis, archaeologists reconstruct how these modifications may have
+                appeared in life, illuminating ancient traditions in which the human body itself became a vessel of
+                identity and spiritual continuity.</p>
+        </div>
+
+    </main>
+    <!-- keep your existing overlay + .modal/.modal-content styles -->
+    <div class="modal" id="modal" style="display:none" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-content">
+            <button class="close-modal" aria-label="Close">x</button>
+            <div id="modal-body"></div> <!-- text gets injected inside the div-->
+        </div>
+    </div>
+    <script>
+        // MODALS //
+        (function () {
+            const modal = document.getElementById('modal');
+            const modalBody = document.getElementById('modal-body');
+            const closeBtn = modal.querySelector('.close-modal');
+            let lastTrigger = null;
+
+            function openFrom(selector, trigger) {
+                const src = document.querySelector(selector);
+                if (!src) { console.warn('Missing modal content:', selector); return; }
+                modalBody.innerHTML = src.innerHTML;
+                const newTitle = modalBody.querySelector('h2');
+                if (newTitle) {
+                    newTitle.id = 'modal-title';
+                }
+                modal.style.display = 'block';
+                lastTrigger = trigger || null;
+                closeBtn.focus();
+                document.body.style.overflow = 'hidden'; // stops scoll when in modal
+            }
+
+            function closeModal() {
+                modal.style.display = 'none';
+                modalBody.innerHTML = '';
+                document.body.style.overflow = '';
+                if (lastTrigger) lastTrigger.focus();
+            }
+
+            // open on any element with data-modal-target
+            document.addEventListener('click', (e) => {
+                const trigger = e.target.closest('[data-modal-target]');
+                if (trigger) {
+                    e.preventDefault();
+                    openFrom(trigger.getAttribute('data-modal-target'), trigger);
+                    return;
+                }
+                if (e.target === modal || e.target.closest('.close-modal')) closeModal();
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.style.display === 'block') closeModal();
+            });
+        })();
+
+        // SHOW SECTIONS //
+        function showSection(section) {
+            const sections = document.querySelectorAll('.collection-section');
+            sections.forEach(s => s.style.display = 'none');
+            document.getElementById(section).style.display = 'block';
+        }
+
+    </script>
+</body>
 
 </html>

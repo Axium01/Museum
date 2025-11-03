@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow">
   <title>Museum Souvenir Shop</title>
   <meta name="author" content="Milo Wearn">
@@ -11,51 +12,79 @@
 
 <body>
   <header>
-      <h1>Museum of History</h1>
-        <nav>
-            <ul>
-                <button class="nav-btn" onclick="location.href='../index.html'">Home</button>
-                <button class="nav-btn" onclick="location.href='staff.html'">Staff</button>
-                <button class="nav-btn" onclick="location.href='collections.html'">Collections</button>
-            </ul>
-        </nav>
-    </header>
-  
+    <h1>Museum of History</h1>
+    <nav>
+      <ul>
+        <button class="nav-btn" onclick="location.href='../index.html'">Home</button>
+        <button class="nav-btn" onclick="location.href='staff.html'">Staff</button>
+        <button class="nav-btn" onclick="location.href='collections.html'">Collections</button>
+        <button class="nav-btn" onclick="location.href='cart.html'" id="viewCartBtn">View Cart</button>
+      </ul>
+    </nav>
+  </header>
+
   <div class="shop-container">
 
     <div class="souvenir-item" data-id="item001">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/7/74/Fleche_Cartailhac_MHNT_PRE_2009.0.232.2_simple.jpg" alt="" onclick="openModal(this)" />
-      <h3>Listing Title</h3>
-      <p>Listing Description</p>
-      <p><strong>Price:</strong> $00.00</p>
-      <button onclick="addToCart('item001')">Add [Replace with Item Name] to Cart</button>
+      
+      <img src="../images/collections/stylus.jpg"
+        alt="" onclick="openModal(this)" />
+      <h3>Bronze Stylus Replica</h3>
+      <p>Collection: Archeology</p>
+      <p><strong>Price:</strong> $21.55</p>
+      <span class="qty-badge" aria-live="polite"></span>
+      <button onclick="addToCart(this)"
+      data-id="item001"
+      data-name="Bronze Stylus Replica"
+      data-price="21.55"
+      data-image="../images/collections/stylus.jpg">
+      Add Bronze Stylus Replica to Cart</button>
+      
     </div>
 
     <div class="souvenir-item" data-id="item002">
-      <img src="" alt="" onclick="openModal(this)" />
-      <h3>Listing Title</h3>
-      <p>Listing Description</p>
-      <p><strong>Price:</strong> $00.00</p>
-      <button onclick="addToCart('item002')">Add [Replace with Item Name] to Cart</button>
+      <img src="../images/collections/figurine.jpg" alt="" onclick="openModal(this)" />
+      <h3>Terracotta Figurine</h3>
+      <p><strong>Collection: </strong>Anthropology</p>
+      <p><strong>Price:</strong> $15.00</p>
+      <span class="qty-badge" aria-live="polite"></span>
+      <button onclick="addToCart(this)"
+      data-id="item002"
+      data-name="Terracotta Figurine"
+      data-price="15.00"
+      data-image="../images/collections/figurine.jpg">Add Terracotta Figurine to Cart</button>
     </div>
 
     <div class="souvenir-item" data-id="item003">
-      <img src="" alt="" onclick="openModal(this)" />
-      <h3>Listing Title</h3>
-      <p>Listing Description</p>
-      <p><strong>Price:</strong> $00.00</p>
-      <button onclick="addToCart('item003')">Add [Replace with Item Name] to Cart</button>
+      <img src="../images/collections/sculpture.jpg" alt="" onclick="openModal(this)" />
+      <h3>Terracotta Figurine</h3>
+      <p><strong>Collection: </strong>Anthropology</p>
+      <p><strong>Price:</strong> $15.00</p>
+      <span class="qty-badge" aria-live="polite"></span>
+      <button onclick="addToCart(this)"
+      data-id="item003"
+      data-name="Terracotta Figurine"
+      data-price="15.00"
+      data-image="../images/collections/sculpture.jpg">Add Terracotta Figurine to Cart</button>
     </div>
 
     <div class="souvenir-item" data-id="item004">
-      <img src="" alt="" onclick="openModal(this)" />
-      <h3>Listing Title</h3>
-      <p>Listing Description</p>
-      <p><strong>Price:</strong> $00.00</p>
-      <button onclick="addToCart('item004')">Add [Replace with Item Name] to Cart</button>
+      <img src="../images/collections/sculpture.jpg" alt="" onclick="openModal(this)" />
+      <h3>Terracotta Figurine</h3>
+      <p><strong>Collection: </strong>Anthropology</p>
+      <p><strong>Price:</strong> $15.00</p>
+      <span class="qty-badge" aria-live="polite"></span>
+      <button onclick="addToCart(this)"
+      data-id="item004"
+      data-name="Terracotta Figurine"
+      data-price="15.00"
+      data-image="../images/collections/sculpture.jpg">Add Terracotta Figurine to Cart</button>
     </div>
-
   </div>
+  <section class="grid-bottom">
+    <p>This is a fictitious website created purely for academic purposes. The content on this site was conceived by a human and created by AI. 
+    Some images were created by AI and curated, edited, reviewed, verified, validated, and augmented by a human.</p>
+  </section>
 
   <!-- MODAL -->
   <div class="modal" id="modal">
@@ -66,30 +95,64 @@
   </div>
 
   <script>
-    function addToCart(itemId) {
-      alert("Added " + itemId + " to cart (functionality to come)");
-      // Future: Push to cart array
+    
+    const CART_KEY = 'museumCartV1';
+
+    function readCart() {
+      try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; }
+      catch { return []; }
+    }
+
+    function writeCart(cart) {
+      localStorage.setItem(CART_KEY, JSON.stringify(cart));
     }
 
     function openModal(imgElement) {
-      const modal = document.getElementById("modal");
-      const modalImage = document.getElementById("modal-image");
-      modalImage.src = imgElement.src;
-      modalImage.alt = imgElement.alt;
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImg');
       modal.style.display = "block";
+      modalImg.src = imgElement.src;
+      modalImg.alt = imgElement.alt;
     }
 
     function closeModal() {
-      document.getElementById("modal").style.display = "none";
+      document.getElementById('imageModal').style.display = "none";
     }
 
-    // Optional: Close modal on outside click
-    window.onclick = function(event) {
-      const modal = document.getElementById("modal");
-      if (event.target === modal) {
-        closeModal();
+    function addToCart(btn) {
+      const id = btn.dataset.id;
+      const name = btn.dataset.name;
+      const unitPrice = Number(btn.dataset.price);
+      const image = btn.dataset.image;
+
+      let cart = readCart();
+      const idx = cart.findIndex(it => it.id === id);
+      if (idx >= 0) {
+        cart[idx].qty += 1;
+      } else {
+        cart.push({ id, name, unitPrice, qty: 1, image });
+      }
+      writeCart(cart);
+
+     
+      const card = btn.closest('.souvenir-item');
+      if (card) {
+        const badge = card.querySelector('.qty-badge');
+        if (badge) {
+          const item = cart.find(it => it.id === id);
+          badge.textContent = item ? `Qty: ${item.qty}` : '';
+        }
       }
     }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('imageModal');
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    }
+  
   </script>
 </body>
+
 </html>
